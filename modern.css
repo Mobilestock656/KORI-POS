@@ -1,0 +1,53 @@
+/* ธีมใหม่: เมนูซ้ายแบบจัดกลุ่ม การ์ดนุ่ม ปุ่มชัด ใช้งานบนแท็บเล็ต/มือถือได้ */
+:root{--radius:14px;--shadow:0 1px 2px rgba(15,23,42,.05),0 6px 20px rgba(15,23,42,.06);--bg-app:#F4F6F8}
+body{font-family:'Prompt',sans-serif;-webkit-font-smoothing:antialiased}
+body.locked>*:not(#loginGate):not(script){display:none!important}
+#loginGate{display:none;position:fixed;inset:0;z-index:10000;align-items:center;justify-content:center;padding:20px;
+  background:radial-gradient(circle at 20% 10%,#99f6e4 0,transparent 40%),radial-gradient(circle at 90% 90%,#bae6fd 0,transparent 40%),#f8fafc}
+body.locked #loginGate{display:flex}
+.login-card{background:#fff;border-radius:24px;padding:40px 32px;width:100%;max-width:380px;text-align:center;box-shadow:0 20px 60px rgba(15,23,42,.15)}
+.login-card .logo{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--primary),#14b8a6);color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.login-card h2{margin:0 0 6px;color:var(--secondary)}.login-card p{margin:0 0 24px;color:var(--text-light);font-size:.9rem}
+#gBtn{display:flex;justify-content:center;min-height:44px}
+#loginErr{color:#DC2626;font-size:.88rem;margin-top:16px;min-height:1.2em}#loginBusy{display:none;color:var(--text-light);font-size:.85rem;margin-top:10px}
+
+/* ปุ่ม ช่องกรอก การ์ด */
+.btn-primary,.btn-outline,.btn-danger,.btn-checkout{border-radius:10px!important;font-family:inherit;transition:.15s}
+.btn-primary{background:linear-gradient(135deg,var(--primary),#0f9d8a)!important;border:0!important;box-shadow:0 2px 8px rgba(0,121,107,.25)}
+input,select,textarea{border-radius:10px!important;border:1px solid var(--border)!important;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--primary)!important;box-shadow:0 0 0 3px rgba(0,121,107,.15)}
+.product-card,.cart-panel,.products-panel,.dash-panel,.dash-card-stat,.history-card,.payroll-card{border-radius:var(--radius)!important;border:1px solid var(--border)!important;box-shadow:var(--shadow)!important}
+.product-card{transition:.15s}.product-card:hover{transform:translateY(-2px);border-color:var(--primary)!important}
+.tab-btn{border-radius:999px!important}
+.modal{backdrop-filter:blur(4px)}
+.modal-content{border-radius:20px!important;border-top:0!important;box-shadow:0 24px 70px rgba(15,23,42,.25)!important}
+.btn-checkout{background:linear-gradient(135deg,#059669,#10b981)!important;box-shadow:0 6px 18px rgba(16,185,129,.35)}
+
+/* เมนู */
+.top-navbar{flex-direction:column!important;align-items:stretch!important;white-space:normal!important}
+.brand-zone h1{font-size:1.15rem;margin:0;color:var(--secondary)}
+.nav-actions{display:flex!important;flex-direction:column!important;width:auto!important;gap:2px!important}
+.nav-group{display:flex;flex-direction:column;gap:2px;margin-top:10px}
+.nav-group-label{font-size:.7rem;font-weight:600;letter-spacing:.06em;color:#94A3B8;padding:6px 12px 2px}
+.nav-actions .nav-item{display:flex;align-items:center;gap:10px;text-align:left;width:100%;padding:10px 12px;border:0!important;border-radius:10px;background:transparent!important;color:var(--text-main)!important;font-size:.92rem;cursor:pointer;position:relative}
+.nav-actions .nav-item:hover{background:#F1F5F9!important}
+.nav-actions .nav-item.active{background:rgba(0,121,107,.1)!important;color:var(--primary)!important;font-weight:600}
+.nav-actions .nav-item.danger{color:#DC2626!important}
+.nav-item .ic{width:22px;text-align:center}
+.nav-item .nav-badge{position:static!important;margin-left:auto}
+.nav-user{margin-top:auto;padding:14px 12px 4px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-light);word-break:break-all}
+.nav-user b{display:block;color:var(--secondary);font-size:.88rem}
+.nav-user button{margin-top:8px;border:1px solid var(--border);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font-family:inherit}
+
+@media(min-width:1024px){
+  body{padding-left:248px!important}
+  .top-navbar{position:fixed!important;left:0;top:0;bottom:0;width:248px;padding:18px 14px!important;overflow-y:auto!important;border-right:1px solid var(--border);box-shadow:none!important;z-index:100}
+  .brand-zone{padding:4px 12px 8px}
+}
+@media(max-width:1023px){
+  .top-navbar{flex-direction:column!important;padding:8px 10px!important;position:sticky!important;top:0}
+  .nav-actions{flex-direction:row!important;overflow-x:auto;scrollbar-width:none}
+  .nav-group{display:contents}.nav-group-label,.nav-user{display:none}
+  .nav-actions .nav-item{width:auto;flex:none;white-space:nowrap;padding:8px 12px;background:#F1F5F9!important}
+  .nav-item .ic{width:auto}
+}
